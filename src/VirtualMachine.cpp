@@ -12,8 +12,7 @@ VirtualMachine::VirtualMachine()
     registers[1] = 0;
     registers[2] = 0;
     registers[3] = 0;
-    programCounter = 0;
-    stackPointer = 0;
+    registers[4] = 0;
 }
 
 VirtualMachine::~VirtualMachine() {}
@@ -112,6 +111,11 @@ void VirtualMachine::tick()
             secondOperand = program[programCounter++];
             registers[firstOperand] = secondOperand;
             break;
+        case MOVR:
+            firstOperand = program[programCounter++];
+            secondOperand = program[programCounter++];
+            registers[firstOperand] = registers[secondOperand];
+            break;
         case PRINT:
             firstOperand = program[programCounter++];
             if (firstOperand == 0)
@@ -139,7 +143,25 @@ void VirtualMachine::tick()
 void VirtualMachine::loadProgram(std::array<int, 1024> program) 
 {
     this->program = program;
-    this->programCounter = 0;
+}
+
+int VirtualMachine::loadProgram(std::vector<int> program, int offset) 
+{
+    int size = offset;
+    for (int i = 0; i < program.size(); i++) {
+        this->program[i + offset] = program[i];
+        size++;
+    }
+    return size;
+}
+
+void VirtualMachine::setProgramCounter(int programCounter)
+{
+    this->programCounter = programCounter;
+}
+
+void VirtualMachine::turnOff()
+{
     this->isRunning = false;
 }
 

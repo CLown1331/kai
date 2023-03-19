@@ -36,6 +36,7 @@ enum {
     LOAD,
     STORE,
     MOV,
+    MOVR,
     // I/O
     PRINT,
     READ,
