@@ -11,7 +11,9 @@ VirtualMachine::VirtualMachine()
     registers[0] = 0;
     registers[1] = 0;
     registers[2] = 0;
+    registers[3] = 0;
     programCounter = 0;
+    stackPointer = 0;
 }
 
 VirtualMachine::~VirtualMachine() {}

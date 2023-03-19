@@ -18,11 +18,9 @@ private:
     std::array<int, 1024> memory;
     std::array<int, 4> registers;
     std::array<int, 1024> stack;
-    std::array<int, 1024> heap;
     std::array<int, 1024> program;
     int programCounter;
     int stackPointer;
-    int heapPointer;
     bool isRunning;
 };
 
