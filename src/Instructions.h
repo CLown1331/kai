@@ -5,7 +5,8 @@
 #ifndef KAI_INSTRUCTIONS_H
 #define KAI_INSTRUCTIONS_H
 
-enum {
+enum
+{
     // Arithmetic
     ADD,
     SUB,
@@ -45,4 +46,4 @@ enum {
     HALT
 };
 
-#endif //KAI_INSTRUCTIONS_H
+#endif // KAI_INSTRUCTIONS_H

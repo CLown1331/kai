@@ -8,7 +8,8 @@
 #include <array>
 #include <vector>
 
-class VirtualMachine {
+class VirtualMachine
+{
 public:
     VirtualMachine();
     ~VirtualMachine();
@@ -18,6 +19,7 @@ public:
     void setProgramCounter(int programCounter);
     void turnOff();
     void run();
+
 private:
     std::array<int, 1024> memory;
     std::array<int, 5> registers;
@@ -28,5 +30,4 @@ private:
     bool isRunning;
 };
 
-
-#endif //KAI_VIRTUALMACHINE_H
+#endif // KAI_VIRTUALMACHINE_H
