@@ -20,8 +20,6 @@ enum
     NOT,
     SHL,
     SHR,
-    // Comparison
-    CMP,
     // Control
     JMP,
     JEQ,

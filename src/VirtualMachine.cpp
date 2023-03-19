@@ -57,9 +57,6 @@ void VirtualMachine::tick()
     case SHR:
         registers[0] = registers[1] >> registers[2];
         break;
-    case CMP:
-        registers[0] = registers[1] - registers[2];
-        break;
     case JMP:
         programCounter = registers[0];
         break;
@@ -146,11 +143,6 @@ void VirtualMachine::tick()
         std::printf("Unknown instruction: %d\n", instruction);
         break;
     }
-}
-
-void VirtualMachine::loadProgram(std::array<int, 1024> program)
-{
-    this->program = program;
 }
 
 int VirtualMachine::loadProgram(std::vector<int> program, int offset)

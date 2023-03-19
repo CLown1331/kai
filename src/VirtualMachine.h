@@ -8,23 +8,24 @@
 #include <array>
 #include <vector>
 
+const int poolSz = 1024;
+
 class VirtualMachine
 {
 public:
     VirtualMachine();
     ~VirtualMachine();
     void tick();
-    void loadProgram(std::array<int, 1024> program);
     int loadProgram(std::vector<int> program, int offset = 0);
     void setProgramCounter(int programCounter);
     void turnOff();
     void run();
 
 private:
-    std::array<int, 1024> memory;
+    std::array<int, poolSz> memory;
     std::array<int, 5> registers;
-    std::array<int, 1024> stack;
-    std::array<int, 1024> program;
+    std::array<int, poolSz> stack;
+    std::array<int, poolSz> program;
     int &programCounter = registers[3];
     int &stackPointer = registers[4];
     bool isRunning;
